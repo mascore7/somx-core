@@ -1,28 +1,33 @@
-# somx-core
-Security-First Sovereign AI Core Platform — Policy Enforcement, Secure Agent Execution, Multi-Model Routing, Audit Trails, and AI Governance.
+# SOMX-CORE (SSSAEE Framework)
+> **Security-First Sovereign AI Core Platform & Autonomous Agent Governance**
 
-from fastapi import FastAPI
+[![Security: Zero-Trust](https://img.shields.io/badge/Security-Zero--Trust-red.svg)](https://mascore7.com)
+[![Architecture: CTOMAS CORE](https://img.shields.io/badge/Architecture-CTOMAS%20CORE-blue.svg)](https://somx-core.mascore7.com)
+[![Status: Operational](https://img.shields.io/badge/Status-Operational-brightgreen.svg)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)]()
 
-app = FastAPI(
-    title="SSSAEE Core — CTOMAS CORE",
-    description="Secure Sovereign AI Ecosystem Engine",
-    version="0.1.0",
-)
+SOMX-CORE is an enterprise-grade sovereign intelligence engine engineered to enforce continuous zero-trust boundary isolation, dynamic multi-model routing, and cryptographic audit trails for mission-critical AI workloads.
 
+---
 
-@app.get("/")
-def home():
-    return {
-        "system": "SSSAEE CORE",
-        "runtime": "CTOMAS CORE",
-        "status": "INITIALIZING",
-    }
+## 🏛️ System Architecture
 
-
-@app.get("/health")
-def health():
-    return {
-        "status": "HEALTHY",
-        "system": "CTOMAS CORE",
-        "version": "0.1.0",
-    }
+```text
+       [ Inbound Client / Agent Request ]
+                       │
+                       ▼
+         ┌───────────────────────────┐
+         │  1. DST Token Gatekeeper  │  ◄── HMAC-SHA256 Ingress Auth
+         └─────────────┬─────────────┘
+                       ▼
+         ┌───────────────────────────┐
+         │ 2. Policy Isolation Engine│  ◄── Pattern & Threat Interception
+         └─────────────┬─────────────┘
+                       ▼
+         ┌───────────────────────────┐
+         │ 3. Multi-Model Router Mesh│  ◄── Local Sovereign vs Enterprise LLM
+         └─────────────┬─────────────┘
+                       ▼
+         ┌───────────────────────────┐
+         │ 4. Cryptographic Ledger   │  ◄── Immutable Hash-Chained Audit Log
+         └───────────────────────────┘
