@@ -1,33 +1,22 @@
-# SOMX-CORE (SSSAEE Framework)
-> **Security-First Sovereign AI Core Platform & Autonomous Agent Governance**
-
-[![Security: Zero-Trust](https://img.shields.io/badge/Security-Zero--Trust-red.svg)](https://mascore7.com)
-[![Architecture: CTOMAS CORE](https://img.shields.io/badge/Architecture-CTOMAS%20CORE-blue.svg)](https://somx-core.mascore7.com)
-[![Status: Operational](https://img.shields.io/badge/Status-Operational-brightgreen.svg)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)]()
-
-SOMX-CORE is an enterprise-grade sovereign intelligence engine engineered to enforce continuous zero-trust boundary isolation, dynamic multi-model routing, and cryptographic audit trails for mission-critical AI workloads.
-
----
-
-## 🏛️ System Architecture
-
-```text
-       [ Inbound Client / Agent Request ]
-                       │
-                       ▼
-         ┌───────────────────────────┐
-         │  1. DST Token Gatekeeper  │  ◄── HMAC-SHA256 Ingress Auth
-         └─────────────┬─────────────┘
-                       ▼
-         ┌───────────────────────────┐
-         │ 2. Policy Isolation Engine│  ◄── Pattern & Threat Interception
-         └─────────────┬─────────────┘
-                       ▼
-         ┌───────────────────────────┐
-         │ 3. Multi-Model Router Mesh│  ◄── Local Sovereign vs Enterprise LLM
-         └─────────────┬─────────────┘
-                       ▼
-         ┌───────────────────────────┐
-         │ 4. Cryptographic Ledger   │  ◄── Immutable Hash-Chained Audit Log
-         └───────────────────────────┘
+✅ MASCORE7/somx-net/
+├── .github/workflows/ (KALIYA kan dot leh)
+│   ├── security-ci.yml (casriga cusub - NO pylint trailing error)
+│   └── deploy-cloudflare.yml
+├── sssaee_core/
+│   ├── somx_core/
+│   │   ├── core.py, gatekeeper/dst_token.py, policy_engine/sovereignty_policy.py
+│   │   ├── router/model_mesh.py, ledger/crypto_ledger.py
+│   │   └── __init__.py
+│   └── somx2b2/
+│       ├── b2b_engine.py (TRUTH IS OUR POWER / XAQIIQDA WAA AWOODDA)
+│       ├── settlement.py (SOS/KES/DJF/EGP/NGN)
+│       └── __init__.py
+├── tests/
+│   ├── test_regression_pytest.py (3 tests fail-closed)
+│   └── test_somx2b2_pytest.py (3 tests ganacsiga)
+├── cloudflare/
+│   ├── worker.js (SOMX2B2 Gateway)
+│   └── pages/index.html (Premium glassmorphism)
+├── README.md (FIRST AFRICAN ECOSYSTEM)
+├── pyproject.toml, requirements.txt, wrangler.toml
+├── LICENSE, LICENSE-COMMERCIAL, TRADEMARK.md
