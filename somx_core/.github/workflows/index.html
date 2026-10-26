@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOMX.NET Live Agent Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0d1117; color: #c9d1d9; padding: 20px; }
+        h2 { color: #58a6ff; }
+        #chat-box { border: 1px solid #30363d; background: #161b22; height: 300px; overflow-y: scroll; padding: 10px; margin-bottom: 10px; border-radius: 6px; }
+        input { width: 75%; padding: 10px; background: #0d1117; border: 1px solid #30363d; color: white; border-radius: 4px; }
+        button { padding: 10px 15px; background: #238636; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #2ea043; }
+        .message { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <h2>SOMX.NET Sovereign Live Interface</h2>
+    <div id="chat-box"></div>
+    <input type="text" id="prompt-input" placeholder="Geli fariintaada ama taladaada halkan..." />
+    <button onclick="sendMessage()">Dir (Send)</button>
+
+    <script>
+        const ws = new WebSocket("ws://localhost:8000/ws/v1/stream");
+        const chatBox = document.getElementById("chat-box");
+
+        ws.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            const msgDiv = document.createElement("div");
+            msgDiv.className = "message";
+            msgDiv.innerHTML = `<strong>SOMX Agent:</strong> ${data.step_output || data.message || JSON.stringify(data)}`;
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        };
+
+        function sendMessage() {
+            const input = document.getElementById("prompt-input");
+            if (!input.value) return;
+            
+            const userMsg = document.createElement("div");
+            userMsg.className = "message";
+            userMsg.innerHTML = `<strong style="color: #f0883e;">You:</strong> ${input.value}`;
+            chatBox.appendChild(userMsg);
+
+            ws.send(JSON.stringify({ prompt: input.value }));
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
